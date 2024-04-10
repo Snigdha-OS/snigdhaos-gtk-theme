@@ -1,9 +1,9 @@
 # vim:set ft=gtkrc ts=2 sw=2 sts=2 ai et:
 #
 # This is the main theme file, handling all the default widgets and theme
-# properties. Since GTK+ 2 is old, we need to overcome some of its limitations,
+# properties. Since GTK 2 is old, we need to overcome some of its limitations,
 # which is also mostly done in this file. Sadly not all of them can be overcome
-# so there will always be a visible difference between the GTK+ 2 and 3 theme.
+# so there will always be a visible difference between the GTK 2 and 3 theme.
 
 style "default" {
   xthickness = 1
@@ -21,7 +21,7 @@ style "default" {
   GtkToolbar::internal-padding = 2
   GtkToolButton::icon-spacing  = 4
 
-  GtkWidget::tooltip-radius    = 2
+  GtkWidget::tooltip-radius    = 4
   GtkWidget::tooltip-alpha     = 230
   GtkWidget::new-tooltip-style = 1 #for compatibility
 
@@ -34,17 +34,17 @@ style "default" {
   GtkIMHtml::hyperlink-visited-color = @visited_link_color
 
   GtkSeparatorMenuItem::horizontal-padding = 0
-  GtkSeparatorMenuItem::wide-separators    = 0
-  GtkSeparatorMenuItem::separator-height   = 0
+  GtkSeparatorMenuItem::wide-separators    = 1
+  GtkSeparatorMenuItem::separator-height   = 3
 
   GtkButton::child-displacement-y = 0
 
   GtkButton::default-border         = {0, 0, 0, 0}
   GtkButton::default-outside-border = {0, 0, 0, 0}
-  GtkButton::inner-border           = {4, 4, 4, 4}
+  GtkButton::inner-border           = {0, 0, 0, 0}
 
   GtkEntry::state-hint   = 1
-  GtkEntry::inner-border = {4, 4, 4, 4}
+  GtkEntry::inner-border = {0, 0, 0, 0}
 
   GtkPaned::handle-size  = 8
   GtkHPaned::handle-size = 8
@@ -88,7 +88,7 @@ style "default" {
 
   GtkCheckButton::indicator-size    = 24
   GtkCheckButton::indicator_spacing = 2
-  GtkOptionMenu::indicator_spacing  = {10, 10, 6, 6}
+  GtkOptionMenu::indicator_spacing  = {8, 8, 4, 4}
 
   GtkTreeView::expander-size        = 16
   GtkTreeView::vertical-separator   = 0
@@ -108,27 +108,27 @@ style "default" {
 
   bg[NORMAL]      = @bg_color
   bg[PRELIGHT]    = @bg_color
-  bg[SELECTED]    = @selected_bg_color
+  bg[SELECTED]    = mix (0.24, @selected_bg_color, @bg_color)
   bg[INSENSITIVE] = @bg_color
   bg[ACTIVE]      = @bg_color
 
   fg[NORMAL]      = @fg_color
   fg[PRELIGHT]    = @fg_color
-  fg[SELECTED]    = @selected_fg_color
-  fg[INSENSITIVE] = mix (0.4, @fg_color, @bg_color)
+  fg[SELECTED]    = @fg_color
+  fg[INSENSITIVE] = mix (0.5, @fg_color, @bg_color)
   fg[ACTIVE]      = @fg_color
 
   text[NORMAL]      = @text_color
   text[PRELIGHT]    = @text_color
-  text[SELECTED]    = @selected_fg_color
-  text[INSENSITIVE] = mix (0.4, @text_color, @base_color)
-  text[ACTIVE]      = @selected_fg_color
+  text[SELECTED]    = @text_color
+  text[INSENSITIVE] = mix (0.5, @text_color, @base_color)
+  text[ACTIVE]      = @text_color
 
   base[NORMAL]      = @base_color
-  base[PRELIGHT]    = mix (0.05, @text_color, @base_color)
-  base[SELECTED]    = @selected_bg_color
+  base[PRELIGHT]    = mix (0.08, @text_color, @base_color)
+  base[SELECTED]    = mix (0.24, @selected_bg_color, @base_color)
   base[INSENSITIVE] = mix (0.5, @base_color, @bg_color)
-  base[ACTIVE]      = @selected_bg_color
+  base[ACTIVE]      = mix (0.24, @selected_bg_color, @base_color)
 
   # For succinctness, all reasonable pixmap options remain here
 
@@ -144,7 +144,6 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = NORMAL
       shadow          = OUT
       overlay_file    = "assets/checkbox-unchecked.png"
@@ -153,7 +152,6 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = OUT
       overlay_file    = "assets/checkbox-unchecked-hover.png"
@@ -162,7 +160,6 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = ACTIVE
       shadow          = OUT
       overlay_file    = "assets/checkbox-unchecked-active.png"
@@ -171,7 +168,6 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = SELECTED
       shadow          = OUT
       overlay_file    = "assets/checkbox-unchecked.png"
@@ -180,16 +176,14 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = OUT
-      overlay_file    = "assets/checkbox-unchecked-insensitive.png"
+      overlay_file    = "assets/checkbox-unchecked-disabled.png"
       overlay_stretch = FALSE
     }
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = NORMAL
       shadow          = IN
       overlay_file    = "assets/checkbox-checked.png"
@@ -198,7 +192,6 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = IN
       overlay_file    = "assets/checkbox-checked-hover.png"
@@ -207,7 +200,6 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = ACTIVE
       shadow          = IN
       overlay_file    = "assets/checkbox-checked-active.png"
@@ -216,7 +208,6 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = SELECTED
       shadow          = IN
       overlay_file    = "assets/checkbox-checked.png"
@@ -225,16 +216,14 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = IN
-      overlay_file    = "assets/checkbox-checked-insensitive.png"
+      overlay_file    = "assets/checkbox-checked-disabled.png"
       overlay_stretch = FALSE
     }
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = NORMAL
       shadow          = ETCHED_IN
       overlay_file    = "assets/checkbox-mixed.png"
@@ -243,7 +232,6 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = ETCHED_IN
       overlay_file    = "assets/checkbox-mixed-hover.png"
@@ -252,7 +240,6 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = ACTIVE
       shadow          = ETCHED_IN
       overlay_file    = "assets/checkbox-mixed-active.png"
@@ -261,7 +248,6 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = SELECTED
       shadow          = ETCHED_IN
       overlay_file    = "assets/checkbox-mixed.png"
@@ -270,10 +256,9 @@ style "default" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = ETCHED_IN
-      overlay_file    = "assets/checkbox-mixed-insensitive.png"
+      overlay_file    = "assets/checkbox-mixed-disabled.png"
       overlay_stretch = FALSE
     }
 
@@ -317,7 +302,7 @@ style "default" {
       function        = OPTION
       state           = INSENSITIVE
       shadow          = OUT
-      overlay_file    = "assets/radio-unchecked-insensitive.png"
+      overlay_file    = "assets/radio-unchecked-disabled.png"
       overlay_stretch = FALSE
     }
 
@@ -357,7 +342,7 @@ style "default" {
       function        = OPTION
       state           = INSENSITIVE
       shadow          = IN
-      overlay_file    = "assets/radio-checked-insensitive.png"
+      overlay_file    = "assets/radio-checked-disabled.png"
       overlay_stretch = FALSE
     }
 
@@ -397,7 +382,7 @@ style "default" {
       function        = OPTION
       state           = INSENSITIVE
       shadow          = ETCHED_IN
-      overlay_file    = "assets/radio-mixed-insensitive.png"
+      overlay_file    = "assets/radio-mixed-disabled.png"
       overlay_stretch = FALSE
     }
 
@@ -449,7 +434,7 @@ style "default" {
       function        = ARROW
       state           = INSENSITIVE
       detail          = "menuitem"
-      overlay_file    = "assets/pan-left-insensitive.png"
+      overlay_file    = "assets/pan-left-disabled.png"
       overlay_stretch = FALSE
       arrow_direction = LEFT
     }
@@ -476,7 +461,7 @@ style "default" {
       function        = ARROW
       state           = INSENSITIVE
       detail          = "menuitem"
-      overlay_file    = "assets/pan-right-insensitive.png"
+      overlay_file    = "assets/pan-right-disabled.png"
       overlay_stretch = FALSE
       arrow_direction = RIGHT
     }
@@ -485,7 +470,7 @@ style "default" {
       function        = ARROW
       state           = INSENSITIVE
       detail          = "menu_scroll_arrow_up"
-      overlay_file    = "assets/pan-up-insensitive.png"
+      overlay_file    = "assets/pan-up-disabled.png"
       overlay_stretch = FALSE
     }
 
@@ -500,7 +485,7 @@ style "default" {
       function        = ARROW
       state           = INSENSITIVE
       detail          = "menu_scroll_arrow_down"
-      overlay_file    = "assets/pan-down-insensitive.png"
+      overlay_file    = "assets/pan-down-disabled.png"
       overlay_stretch = FALSE
     }
 
@@ -540,7 +525,7 @@ style "default" {
     image {
       function        = ARROW
       state           = INSENSITIVE
-      overlay_file    = "assets/pan-up-alt-insensitive.png"
+      overlay_file    = "assets/pan-up-alt-disabled.png"
       overlay_stretch = FALSE
       arrow_direction = UP
     }
@@ -572,7 +557,7 @@ style "default" {
     image {
       function        = ARROW
       state           = INSENSITIVE
-      overlay_file    = "assets/pan-down-alt-insensitive.png"
+      overlay_file    = "assets/pan-down-alt-disabled.png"
       overlay_stretch = FALSE
       arrow_direction = DOWN
     }
@@ -604,7 +589,7 @@ style "default" {
     image {
       function        = ARROW
       state           = INSENSITIVE
-      overlay_file    = "assets/pan-left-alt-insensitive.png"
+      overlay_file    = "assets/pan-left-alt-disabled.png"
       overlay_stretch = FALSE
       arrow_direction = LEFT
     }
@@ -636,7 +621,7 @@ style "default" {
     image {
       function        = ARROW
       state           = INSENSITIVE
-      overlay_file    = "assets/pan-right-alt-insensitive.png"
+      overlay_file    = "assets/pan-right-alt-disabled.png"
       overlay_stretch = FALSE
       arrow_direction = RIGHT
     }
@@ -669,7 +654,7 @@ style "default" {
     image {
       function        = TAB
       state           = INSENSITIVE
-      overlay_file    = "assets/pan-down-alt-insensitive.png"
+      overlay_file    = "assets/pan-down-alt-disabled.png"
       overlay_stretch = FALSE
     }
 
@@ -696,7 +681,7 @@ style "default" {
     image {
       function = FOCUS
       file     = "assets/focus.png"
-      border   = {2, 2, 2, 2}
+      border   = {5, 5, 5, 5} # Super strange, {4, 4, 4, 4} does not work properly...
       stretch  = TRUE
     }
 
@@ -792,7 +777,7 @@ style "default" {
       function       = EXPANDER
       expander_style = EXPANDED
       state          = INSENSITIVE
-      file           = "assets/pan-down-alt-insensitive.png"
+      file           = "assets/pan-down-alt-disabled.png"
     }
 
     # LTR
@@ -825,7 +810,7 @@ style "default" {
       function       = EXPANDER
       expander_style = COLLAPSED
       state          = INSENSITIVE
-      file           = "assets/pan-right-alt-insensitive.png"
+      file           = "assets/pan-right-alt-disabled.png"
       direction      = LTR
     }
 
@@ -873,7 +858,7 @@ style "default" {
       function       = EXPANDER
       expander_style = COLLAPSED
       state          = INSENSITIVE
-      file           = "assets/pan-left-alt-insensitive.png"
+      file           = "assets/pan-left-alt-disabled.png"
       direction      = RTL
     }
 
@@ -1080,7 +1065,7 @@ style "default" {
       function    = SLIDER
       state       = INSENSITIVE
       detail      = "slider"
-      file        = "assets/scrollbar-horz-slider-insensitive.png"
+      file        = "assets/scrollbar-horz-slider-disabled.png"
       border      = {8, 8, 9, 8 }
       stretch     = TRUE
       orientation = HORIZONTAL
@@ -1125,7 +1110,7 @@ style "default" {
       function    = SLIDER
       state       = INSENSITIVE
       detail      = "slider"
-      file        = "assets/scrollbar-vert-ltr-slider-insensitive.png"
+      file        = "assets/scrollbar-vert-ltr-slider-disabled.png"
       border      = {9, 8, 8, 8}
       stretch     = TRUE
       orientation = VERTICAL
@@ -1171,7 +1156,7 @@ style "default" {
       function    = SLIDER
       state       = INSENSITIVE
       detail      = "slider"
-      file        = "assets/scrollbar-vert-rtl-slider-insensitive.png"
+      file        = "assets/scrollbar-vert-rtl-slider-disabled.png"
       border      = {8, 9, 8, 8}
       stretch     = TRUE
       orientation = VERTICAL
@@ -1198,7 +1183,7 @@ style "default" {
       function    = BOX
       state       = INSENSITIVE
       detail      = "trough-upper"
-      file        = "assets/scale-horz-trough-insensitive.png"
+      file        = "assets/scale-horz-trough-disabled.png"
       border      = {6, 6, 0, 0}
       stretch     = TRUE
       orientation = HORIZONTAL
@@ -1217,7 +1202,7 @@ style "default" {
       function    = BOX
       state       = INSENSITIVE
       detail      = "trough-lower"
-      file        = "assets/scale-horz-trough-insensitive.png"
+      file        = "assets/scale-horz-trough-disabled.png"
       border      = {6, 6, 0, 0}
       stretch     = TRUE
       orientation = HORIZONTAL
@@ -1236,7 +1221,7 @@ style "default" {
       function    = BOX
       state       = INSENSITIVE
       detail      = "trough-upper"
-      file        = "assets/scale-vert-trough-insensitive.png"
+      file        = "assets/scale-vert-trough-disabled.png"
       border      = {0, 0, 6, 6}
       stretch     = TRUE
       orientation = VERTICAL
@@ -1255,7 +1240,7 @@ style "default" {
       function    = BOX
       state       = INSENSITIVE
       detail      = "trough-lower"
-      file        = "assets/scale-vert-trough-insensitive.png"
+      file        = "assets/scale-vert-trough-disabled.png"
       border      = {0, 0, 6, 6}
       stretch     = TRUE
       orientation = VERTICAL
@@ -1288,7 +1273,7 @@ style "default" {
       function = SLIDER
       state    = INSENSITIVE
       detail   = "hscale"
-      file     = "assets/scale-slider-insensitive.png"
+      file     = "assets/scale-slider-disabled.png"
     }
 
     image {
@@ -1316,19 +1301,19 @@ style "default" {
       function = SLIDER
       state    = INSENSITIVE
       detail   = "vscale"
-      file     = "assets/scale-slider-insensitive.png"
+      file     = "assets/scale-slider-disabled.png"
     }
 
     ###########
     # Menubar #
     ###########
 
-    # image {
-    #   function = BOX
-    #   detail   = "menubar"
-    #   file     = "assets/border.png"
-    #   border   = {0, 0, 0, 1}
-    # }
+    image {
+      function = BOX
+      detail   = "menubar"
+      file     = "assets/border.png"
+      border   = {0, 0, 0, 1}
+    }
 
     #########
     # Menus #
@@ -1371,7 +1356,7 @@ style "default" {
       state    = ACTIVE
       detail   = "entry"
       file     = "assets/entry-active.png"
-      border   = {8, 8, 8, 8}
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -1379,8 +1364,8 @@ style "default" {
       function = SHADOW
       state    = INSENSITIVE
       detail   = "entry"
-      file     = "assets/entry-insensitive.png"
-      border   = {8, 8, 8, 8}
+      file     = "assets/entry-disabled.png"
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -1388,7 +1373,7 @@ style "default" {
       function = SHADOW
       detail   = "entry"
       file     = "assets/entry.png"
-      border   = {8, 8, 8, 8}
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -1403,7 +1388,7 @@ style "default" {
       function = FLAT_BOX
       state    = INSENSITIVE
       detail   = "entry_bg"
-      file     = "assets/entry-background-insensitive.png"
+      file     = "assets/entry-background-disabled.png"
     }
 
     image {
@@ -1458,10 +1443,10 @@ style "default" {
       function        = BOX
       state           = INSENSITIVE
       detail          = "spinbutton_up"
-      file            = "assets/spin-ltr-up-insensitive.png"
+      file            = "assets/spin-ltr-up-disabled.png"
       border          = {0, 8, 8, 0}
       stretch         = TRUE
-      overlay_file    = "assets/pan-up-alt-insensitive.png"
+      overlay_file    = "assets/pan-up-alt-disabled.png"
       overlay_stretch = FALSE
       direction       = LTR
     }
@@ -1508,10 +1493,10 @@ style "default" {
       function        = BOX
       state           = INSENSITIVE
       detail          = "spinbutton_up"
-      file            = "assets/spin-rtl-up-insensitive.png"
+      file            = "assets/spin-rtl-up-disabled.png"
       border          = {8, 0, 8, 0}
       stretch         = TRUE
-      overlay_file    = "assets/pan-up-alt-insensitive.png"
+      overlay_file    = "assets/pan-up-alt-disabled.png"
       overlay_stretch = FALSE
       direction       = RTL
     }
@@ -1558,10 +1543,10 @@ style "default" {
       function        = BOX
       state           = INSENSITIVE
       detail          = "spinbutton_down"
-      file            = "assets/spin-ltr-down-insensitive.png"
+      file            = "assets/spin-ltr-down-disabled.png"
       border          = {0, 8, 0, 8}
       stretch         = TRUE
-      overlay_file    = "assets/pan-down-alt-insensitive.png"
+      overlay_file    = "assets/pan-down-alt-disabled.png"
       overlay_stretch = FALSE
       direction       = LTR
     }
@@ -1608,10 +1593,10 @@ style "default" {
       function        = BOX
       state           = INSENSITIVE
       detail          = "spinbutton_down"
-      file            = "assets/spin-rtl-down-insensitive.png"
+      file            = "assets/spin-rtl-down-disabled.png"
       border          = {8, 0, 0, 8}
       stretch         = TRUE
-      overlay_file    = "assets/pan-down-alt-insensitive.png"
+      overlay_file    = "assets/pan-down-alt-disabled.png"
       overlay_stretch = FALSE
       direction       = RTL
     }
@@ -1671,18 +1656,19 @@ style "menubar" {
   fg[NORMAL]      = mix(0.7, @titlebar_fg_color, @titlebar_bg_color)
   fg[PRELIGHT]    = @titlebar_fg_color
   fg[INSENSITIVE] = mix(0.3, @titlebar_fg_color, @titlebar_bg_color)
+  bg[INSENSITIVE] = @bg_color
   # Needed to fix Firefox's menubar text
-  bg[SELECTED]    = mix(0.15, @titlebar_fg_color, @titlebar_bg_color)
+  bg[SELECTED]    = mix(0.12, @titlebar_fg_color, @titlebar_bg_color)
   fg[SELECTED]    = @titlebar_fg_color
 }
 
 style "menubar_item" {
-  xthickness = 2
+  xthickness = 3
   ythickness = 4
 
   fg[NORMAL]      = mix(0.7, @titlebar_fg_color, @titlebar_bg_color)
-  bg[PRELIGHT]    = @selected_bg_color
-  fg[PRELIGHT]    = @selected_fg_color
+  bg[PRELIGHT]    = mix(0.12, @titlebar_fg_color, @titlebar_bg_color)
+  fg[PRELIGHT]    = @titlebar_fg_color
   fg[INSENSITIVE] = mix(0.3, @titlebar_fg_color, @titlebar_bg_color)
 }
 
@@ -1690,24 +1676,24 @@ style "menu" {
   xthickness = 0
   ythickness = 0
 
-  bg[NORMAL]      = @base_color
-  bg[INSENSITIVE] = @base_color
-  bg[PRELIGHT]    = @base_color
-  bg[SELECTED]    = mix(0.15, @fg_color, @base_color)
+  bg[NORMAL]      = @menu_color
+  bg[INSENSITIVE] = @menu_color
+  bg[PRELIGHT]    = @menu_color
+  bg[SELECTED]    = mix(0.08, @fg_color, @menu_color)
 }
 
 style "menu_item" {
   xthickness = 4
-  ythickness = 2
+  ythickness = 4
 
-  bg[PRELIGHT]   = @selected_bg_color
-  fg[PRELIGHT]   = @selected_fg_color
+  bg[PRELIGHT]   = mix(0.08, @fg_color, @menu_color)
+  fg[PRELIGHT]   = @fg_color
   # Chromium uses this setting
-  bg[SELECTED]   = @selected_bg_color
-  text[SELECTED] = @selected_fg_color
+  bg[SELECTED]   = mix(0.08, @fg_color, @menu_color)
+  text[SELECTED] = @fg_color
   # Some widgets use text, we need to handle that
   text[NORMAL]   = @fg_color
-  text[PRELIGHT] = @selected_fg_color
+  text[PRELIGHT] = @fg_color
 
   # Unfortunately we can't tell regular and menu checks/radios apart
   # Without the heirarchy
@@ -1719,7 +1705,6 @@ style "menu_item" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = NORMAL
       shadow          = OUT
       overlay_file    = "assets/menu-checkbox-unchecked.png"
@@ -1728,7 +1713,6 @@ style "menu_item" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = OUT
       overlay_file    = "assets/menu-checkbox-unchecked.png"
@@ -1737,7 +1721,6 @@ style "menu_item" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = ACTIVE
       shadow          = OUT
       overlay_file    = "assets/menu-checkbox-unchecked.png"
@@ -1746,16 +1729,14 @@ style "menu_item" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = OUT
-      overlay_file    = "assets/menu-checkbox-unchecked-insensitive.png"
+      overlay_file    = "assets/menu-checkbox-unchecked-disabled.png"
       overlay_stretch = FALSE
     }
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = NORMAL
       shadow          = IN
       overlay_file    = "assets/menu-checkbox-checked.png"
@@ -1764,7 +1745,6 @@ style "menu_item" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = IN
       overlay_file    = "assets/menu-checkbox-checked.png"
@@ -1773,7 +1753,6 @@ style "menu_item" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = ACTIVE
       shadow          = IN
       overlay_file    = "assets/menu-checkbox-checked.png"
@@ -1782,16 +1761,14 @@ style "menu_item" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = IN
-      overlay_file    = "assets/menu-checkbox-checked-insensitive.png"
+      overlay_file    = "assets/menu-checkbox-checked-disabled.png"
       overlay_stretch = FALSE
     }
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = NORMAL
       shadow          = ETCHED_IN
       overlay_file    = "assets/menu-checkbox-mixed.png"
@@ -1800,7 +1777,6 @@ style "menu_item" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = PRELIGHT
       shadow          = ETCHED_IN
       overlay_file    = "assets/menu-checkbox-mixed.png"
@@ -1809,7 +1785,6 @@ style "menu_item" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = ACTIVE
       shadow          = ETCHED_IN
       overlay_file    = "assets/menu-checkbox-mixed.png"
@@ -1818,10 +1793,9 @@ style "menu_item" {
 
     image {
       function        = CHECK
-      recolorable     = TRUE
       state           = INSENSITIVE
       shadow          = ETCHED_IN
-      overlay_file    = "assets/menu-checkbox-mixed-insensitive.png"
+      overlay_file    = "assets/menu-checkbox-mixed-disabled.png"
       overlay_stretch = FALSE
     }
 
@@ -1857,7 +1831,7 @@ style "menu_item" {
       function        = OPTION
       state           = INSENSITIVE
       shadow          = OUT
-      overlay_file    = "assets/menu-radio-unchecked-insensitive.png"
+      overlay_file    = "assets/menu-radio-unchecked-disabled.png"
       overlay_stretch = FALSE
     }
 
@@ -1889,7 +1863,7 @@ style "menu_item" {
       function        = OPTION
       state           = INSENSITIVE
       shadow          = IN
-      overlay_file    = "assets/menu-radio-checked-insensitive.png"
+      overlay_file    = "assets/menu-radio-checked-disabled.png"
       overlay_stretch = FALSE
     }
 
@@ -1921,15 +1895,8 @@ style "menu_item" {
       function        = OPTION
       state           = INSENSITIVE
       shadow          = ETCHED_IN
-      overlay_file    = "assets/menu-radio-mixed-insensitive.png"
+      overlay_file    = "assets/menu-radio-mixed-disabled.png"
       overlay_stretch = FALSE
-    }
-
-    image {
-      function = SHADOW # This fixes boxy Qt menu items
-      file = "assets/null.png"
-      border = { 4, 4, 4, 4 }
-      stretch = TRUE
     }
   }
 }
@@ -1948,22 +1915,22 @@ style "separator_menu_item" {
 }
 
 style "button_label" {
-  fg[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  # fg[NORMAL] = mix(0.7, @fg_color, @bg_color)
   # fg[INSENSITIVE] = mix(0.3, @fg_color, @bg_color)
 
   font_name = "Medium"
 }
 
-style "checkbutton_label" {
-  fg[NORMAL] = @fg_color
-  # fg[INSENSITIVE] = mix(0.4, @fg_color, @bg_color)
+style "normal_button_label" {
+  # fg[NORMAL] = @fg_color
+  # fg[INSENSITIVE] = mix(0.5, @fg_color, @bg_color)
 
   font_name = "Regular"
 }
 
 style "button" {
-  xthickness = 4
-  ythickness = 4
+  xthickness = 6
+  ythickness = 6
 
   # For the sake of sanity style buttons this way
   engine "pixmap" {
@@ -1976,7 +1943,7 @@ style "button" {
       function = BOX
       state    = NORMAL
       file     = "assets/button.png"
-      border   = {8, 8, 8, 8}
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -1985,7 +1952,7 @@ style "button" {
       state    = PRELIGHT
       shadow   = OUT
       file     = "assets/button-hover.png"
-      border   = {8, 8, 8, 8}
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -1995,7 +1962,7 @@ style "button" {
       state    = PRELIGHT
       shadow   = IN
       file     = "assets/button-active.png"
-      border   = {8, 8, 8, 8}
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -2003,15 +1970,15 @@ style "button" {
       function = BOX
       state    = ACTIVE
       file     = "assets/button-active.png"
-      border   = {8, 8, 8, 8}
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
     image {
       function = BOX
       state    = INSENSITIVE
-      file     = "assets/button-insensitive.png"
-      border   = {8, 8, 8, 8}
+      file     = "assets/button-disabled.png"
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
   }
@@ -2027,6 +1994,11 @@ style "link_button" {
 }
 
 style "entry" {
+  base[NORMAL]      = @bg_color
+  base[SELECTED]    = mix (0.24, @selected_bg_color, @bg_color)
+  base[INSENSITIVE] = @bg_color
+  base[ACTIVE]      = mix (0.24, @selected_bg_color, @bg_color)
+
   # We set this same as the border of the border of the entry
   # This way there's no overlap
   xthickness = 6
@@ -2039,18 +2011,59 @@ style "combobox" {
 
   # This affects only the button beside an entry
   GtkButton::inner-border = {0, 0, 0, 0}
+
+  # For the sake of sanity style buttons this way
+  engine "pixmap" {
+
+    ###########
+    # Buttons #
+    ###########
+
+    image {
+      function = BOX
+      state    = NORMAL
+      file     = "assets/entry.png"
+      border   = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+
+    image {
+      function = BOX
+      state    = PRELIGHT
+      file     = "assets/entry-hover.png"
+      border   = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+
+    image {
+      function = BOX
+      state    = ACTIVE
+      file     = "assets/entry-active.png"
+      border   = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+
+    image {
+      function = BOX
+      state    = INSENSITIVE
+      file     = "assets/entry-disabled.png"
+      border   = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+  }
 }
 
 style "combobox_cellview" {
-  text[NORMAL] = mix(0.75, @fg_color, @bg_color)
+  # text[NORMAL] = mix(0.7, @fg_color, @bg_color)
   # text[INSENSITIVE] = mix(0.3, @fg_color, @bg_color)
-
-  font_name = "Medium"
 }
 
 style "combobox_entry" {
   # Since one side of the button is missing, we need to shift the arrow a little to the right
   GtkButton::inner-border = {0, 2, 0, 0}
+
+  base[NORMAL] = @base_color
+  base[ACTIVE] = @base_color
 
   engine "pixmap" {
 
@@ -2062,8 +2075,8 @@ style "combobox_entry" {
       function  = SHADOW
       state     = NORMAL
       detail    = "entry"
-      file      = "assets/combo-ltr-entry.png"
-      border    = {8, 0, 8, 8}
+      file      = "assets/combo-left-entry.png"
+      border    = {6, 6, 6, 6}
       stretch   = TRUE
       direction = LTR
     }
@@ -2072,8 +2085,8 @@ style "combobox_entry" {
       function  = SHADOW
       state     = ACTIVE
       detail    = "entry"
-      file      = "assets/combo-ltr-entry-active.png"
-      border    = {8, 0, 8, 8}
+      file      = "assets/combo-left-entry-active.png"
+      border    = {6, 6, 6, 6}
       stretch   = TRUE
       direction = LTR
     }
@@ -2082,8 +2095,8 @@ style "combobox_entry" {
       function  = SHADOW
       state     = INSENSITIVE
       detail    = "entry"
-      file      = "assets/combo-ltr-entry-insensitive.png"
-      border    = {8, 0, 8, 8}
+      file      = "assets/combo-left-entry-disabled.png"
+      border    = {6, 6, 6, 6}
       stretch   = TRUE
       direction = LTR
     }
@@ -2096,8 +2109,8 @@ style "combobox_entry" {
       function  = SHADOW
       state     = NORMAL
       detail    = "entry"
-      file      = "assets/combo-rtl-entry.png"
-      border    = {0, 8, 8, 8}
+      file      = "assets/combo-right-entry.png"
+      border    = {6, 6, 6, 6}
       stretch   = TRUE
       direction = RTL
     }
@@ -2106,8 +2119,8 @@ style "combobox_entry" {
       function  = SHADOW
       state     = ACTIVE
       detail    = "entry"
-      file      = "assets/combo-rtl-entry-active.png"
-      border    = {0, 8, 8, 8}
+      file      = "assets/combo-right-entry-active.png"
+      border    = {6, 6, 6, 6}
       stretch   = TRUE
       direction = RTL
     }
@@ -2116,8 +2129,8 @@ style "combobox_entry" {
       function  = SHADOW
       state     = INSENSITIVE
       detail    = "entry"
-      file      = "assets/combo-rtl-entry-insensitive.png"
-      border    = {0, 8, 8, 8}
+      file      = "assets/combo-right-entry-disabled.png"
+      border    = {6, 6, 6, 6}
       stretch   = TRUE
       direction = RTL
     }
@@ -2130,8 +2143,8 @@ style "combobox_entry" {
       function  = BOX
       state     = NORMAL
       detail    = "button"
-      file      = "assets/combo-ltr-button.png"
-      border    = {0, 8, 8, 8}
+      file      = "assets/combo-right-entry.png"
+      border    = {0, 6, 6, 6}
       stretch   = TRUE
       direction = LTR
     }
@@ -2140,8 +2153,8 @@ style "combobox_entry" {
       function  = BOX
       state     = PRELIGHT
       detail    = "button"
-      file      = "assets/combo-ltr-button-hover.png"
-      border    = {0, 8, 8, 8}
+      file      = "assets/combo-right-entry-hover.png"
+      border    = {0, 6, 6, 6}
       stretch   = TRUE
       direction = LTR
     }
@@ -2150,8 +2163,8 @@ style "combobox_entry" {
       function  = BOX
       state     = ACTIVE
       detail    = "button"
-      file      = "assets/combo-ltr-button-active.png"
-      border    = {0, 8, 8, 8}
+      file      = "assets/combo-right-entry-active.png"
+      border    = {0, 6, 6, 6}
       stretch   = TRUE
       direction = LTR
     }
@@ -2160,8 +2173,8 @@ style "combobox_entry" {
       function  = BOX
       state     = INSENSITIVE
       detail    = "button"
-      file      = "assets/combo-ltr-button-insensitive.png"
-      border    = {0, 8, 8, 8}
+      file      = "assets/combo-right-entry-disabled.png"
+      border    = {0, 6, 6, 6}
       stretch   = TRUE
       direction = LTR
     }
@@ -2174,8 +2187,8 @@ style "combobox_entry" {
       function  = BOX
       state     = NORMAL
       detail    = "button"
-      file      = "assets/combo-rtl-button.png"
-      border    = {8, 0, 8, 8}
+      file      = "assets/combo-left-entry.png"
+      border    = {6, 0, 6, 6}
       stretch   = TRUE
       direction = RTL
     }
@@ -2184,8 +2197,8 @@ style "combobox_entry" {
       function  = BOX
       state     = PRELIGHT
       detail    = "button"
-      file      = "assets/combo-rtl-button-hover.png"
-      border    = {8, 0, 8, 8}
+      file      = "assets/combo-left-entry-hover.png"
+      border    = {6, 0, 6, 6}
       stretch   = TRUE
       direction = RTL
     }
@@ -2194,8 +2207,8 @@ style "combobox_entry" {
       function  = BOX
       state     = ACTIVE
       detail    = "button"
-      file      = "assets/combo-rtl-button-active.png"
-      border    = {8, 0, 8, 8}
+      file      = "assets/combo-left-entry-active.png"
+      border    = {6, 0, 6, 6}
       stretch   = TRUE
       direction = RTL
     }
@@ -2204,8 +2217,8 @@ style "combobox_entry" {
       function  = BOX
       state     = INSENSITIVE
       detail    = "button"
-      file      = "assets/combo-rtl-button-insensitive.png"
-      border    = {8, 0, 8, 8}
+      file      = "assets/combo-left-entry-disabled.png"
+      border    = {6, 0, 6, 6}
       stretch   = TRUE
       direction = RTL
     }
@@ -2223,10 +2236,11 @@ style "combo_button_padding" {
 style "notebook" {
   xthickness = 3
   ythickness = 3
+  bg[NORMAL] = @base_color
 }
 
 style "notebook_tab_label" {
-  fg[ACTIVE] = mix(0.75, @fg_color, @bg_color)
+  fg[ACTIVE] = mix(0.7, @fg_color, @bg_color)
 
   font_name = "Medium"
 }
@@ -2242,33 +2256,10 @@ style "notebook_bg" {
 }
 
 style "notebook_entry" {
-  engine "pixmap" {
-    image {
-      function = SHADOW
-      state    = ACTIVE
-      detail   = "entry"
-      file     = "assets/notebook-entry-active.png"
-      border   = {8, 8, 8, 8}
-      stretch  = TRUE
-    }
-
-    image {
-      function = SHADOW
-      state    = INSENSITIVE
-      detail   = "entry"
-      file     = "assets/notebook-entry-insensitive.png"
-      border   = {8, 8, 8, 8}
-      stretch  = TRUE
-    }
-
-    image {
-      function = SHADOW
-      detail   = "entry"
-      file     = "assets/notebook-entry.png"
-      border   = {8, 8, 8, 8}
-      stretch  = TRUE
-    }
-  }
+  base[NORMAL]      = @base_color
+  base[SELECTED]    = mix (0.24, @selected_bg_color, @base_color)
+  base[INSENSITIVE] = @base_color
+  base[ACTIVE]      = mix (0.24, @selected_bg_color, @base_color)
 }
 
 style "normal_bg" {
@@ -2278,106 +2269,10 @@ style "normal_bg" {
 }
 
 style "normal_entry" {
-  engine "pixmap" {
-    image {
-      function = SHADOW
-      state    = ACTIVE
-      detail   = "entry"
-      file     = "assets/entry-active.png"
-      border   = {8, 8, 8, 8}
-      stretch  = TRUE
-    }
-
-    image {
-      function = SHADOW
-      state    = INSENSITIVE
-      detail   = "entry"
-      file     = "assets/entry-insensitive.png"
-      border   = {8, 8, 8, 8}
-      stretch  = TRUE
-    }
-
-    image {
-      function = SHADOW
-      detail   = "entry"
-      file     = "assets/entry.png"
-      border   = {8, 8, 8, 8}
-      stretch  = TRUE
-    }
-  }
-}
-
-style "notebook_combo" {
-  engine "pixmap" {
-
-    #############
-    # LTR entry #
-    #############
-
-    image {
-      function  = SHADOW
-      state     = NORMAL
-      detail    = "entry"
-      file      = "assets/notebook-combo-ltr-entry.png"
-      border    = {8, 8, 8, 8}
-      stretch   = TRUE
-      direction = LTR
-    }
-
-    image {
-      function  = SHADOW
-      state     = ACTIVE
-      detail    = "entry"
-      file      = "assets/notebook-combo-ltr-entry-active.png"
-      border    = {8, 8, 8, 8}
-      stretch   = TRUE
-      direction = LTR
-    }
-
-    image {
-      function  = SHADOW
-      state     = INSENSITIVE
-      detail    = "entry"
-      file      = "assets/notebook-combo-ltr-entry-insensitive.png"
-      border    = {8, 8, 8, 8}
-      stretch   = TRUE
-      direction = LTR
-    }
-
-    #############
-    # RTL entry #
-    #############
-
-    image {
-      function  = SHADOW
-      state     = NORMAL
-      detail    = "entry"
-      file      = "assets/notebook-combo-rtl-entry.png"
-      border    = {8, 8, 8, 8}
-      stretch   = TRUE
-      direction = RTL
-    }
-
-    image {
-      function  = SHADOW
-      state     = ACTIVE
-      detail    = "entry"
-      file      = "assets/notebook-combo-rtl-entry-active.png"
-      border    = {8, 8, 8, 8}
-      stretch   = TRUE
-      direction = RTL
-    }
-
-    image {
-      function  = SHADOW
-      state     = INSENSITIVE
-      detail    = "entry"
-      file      = "assets/notebook-combo-rtl-entry-insensitive.png"
-      border    = {8, 8, 8, 8}
-      stretch   = TRUE
-      direction = RTL
-    }
-  }
+  base[NORMAL]      = @bg_color
+  base[SELECTED]    = mix (0.24, @selected_bg_color, @bg_color)
+  base[INSENSITIVE] = @bg_color
+  base[ACTIVE]      = mix (0.24, @selected_bg_color, @bg_color)
 }
 
 style "textview" {
@@ -2455,7 +2350,7 @@ style "treeview_header" {
   xthickness = 2
   ythickness = 2
 
-  fg[NORMAL]   = mix(0.75, @fg_color, @base_color)
+  fg[NORMAL]   = mix(0.7, @fg_color, @base_color)
   fg[PRELIGHT] = @fg_color
 
   font_name = "Medium"
@@ -2612,7 +2507,7 @@ style "tool_button" {
       function = BOX
       state    = NORMAL
       file     = "assets/flat-button.png"
-      border   = {8, 8, 8, 8}
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -2621,7 +2516,7 @@ style "tool_button" {
       state    = PRELIGHT
       shadow   = OUT
       file     = "assets/flat-button-hover.png"
-      border   = {8, 8, 8, 8}
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -2631,7 +2526,7 @@ style "tool_button" {
       state    = PRELIGHT
       shadow   = IN
       file     = "assets/flat-button-active.png"
-      border   = {8, 8, 8, 8}
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -2639,7 +2534,7 @@ style "tool_button" {
       function = BOX
       state    = ACTIVE
       file     = "assets/flat-button-active.png"
-      border   = {8, 8, 8, 8}
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -2647,8 +2542,8 @@ style "tool_button" {
       function = BOX
       state    = INSENSITIVE
       shadow   = OUT
-      file     = "assets/flat-button-insensitive.png"
-      border   = {8, 8, 8, 8}
+      file     = "assets/flat-button-disabled.png"
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
 
@@ -2656,8 +2551,8 @@ style "tool_button" {
       function = BOX
       state    = INSENSITIVE
       shadow   = IN
-      file     = "assets/button-insensitive.png"
-      border   = {8, 8, 8, 8}
+      file     = "assets/button-disabled.png"
+      border   = {6, 6, 6, 6}
       stretch  = TRUE
     }
   }
@@ -2678,6 +2573,7 @@ style "toolbar_separator" {
 
 style "inline_toolbar" {
   # GtkToolbar::button-relief = GTK_RELIEF_NORMAL
+  bg[NORMAL]   = @base_color
 
   engine "pixmap" {
     image {
@@ -2693,9 +2589,9 @@ style "tooltip" {
   xthickness = 8
   ythickness = 8
 
-  bg[NORMAL]   = @base_color
-  fg[NORMAL]   = @fg_color
-  bg[SELECTED] = @base_color
+  bg[NORMAL]   = @tooltip_bg_color
+  fg[NORMAL]   = @tooltip_fg_color
+  bg[SELECTED] = @tooltip_bg_color
 }
 
 style "disable_text_shadow" {
@@ -2709,13 +2605,6 @@ style "disable_separator" {
   ythickness = 0
 
   GtkWidget::wide-separators = 1
-}
-
-style "panel-launchers"
-{
-  xthickness = 0
-  ythickness = 0
-  GtkButton::inner-border = {1, 2, 1, 2}
 }
 
 # Default style, containing theme properties and trying to match every widget as
@@ -2757,6 +2646,7 @@ widget_class "*<GtkFileChooserDefault>*<GtkToolbar>"               style "inline
 
 # Fix padding on regular comboboxes
 widget_class "*<GtkComboBox>.<GtkButton>"                          style "combobox"
+widget_class "*<GtkOptionMenu>"                                    style "combobox"
 
 # And disable separators on them
 widget_class "*<GtkComboBox>.<GtkButton>*<GtkSeparator>"           style "disable_separator"
@@ -2792,23 +2682,19 @@ widget_class "*<GtkNotebook>*<GtkSpinButton>"                      style "notebo
 widget_class "*<GtkNotebook>*<GtkScrolledWindow>*<GtkViewport>"    style "notebook_bg"
 widget_class "*<GtkNotebook>*<GimpRuler>"                          style "notebook_bg"
 widget_class "*<GtkNotebook>.<GimpDisplayShell>*<GtkEventBox>"     style "notebook_bg"
-widget_class "*<GtkNotebook>*<GtkComboBoxEntry>*"                  style "notebook_combo"
-widget_class "*<GtkNotebook>*<GtkCombo>*"                          style "notebook_combo"
 
 # However, stuff inside eventboxes inside notebooks is grey
 # again, react
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkEntry>"             style "normal_entry"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkProgressBar>"       style "normal_bg"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkSpinButton>"        style "normal_bg"
-widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkComboBoxEntry>*"    style "combobox_entry"
-widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkCombo>*"            style "combobox_entry"
-widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkCombo>.<GtkButton>" style "combo_button_padding"
 
 # Button labels
-widget_class "*<GtkButton>*<GtkLabel>"                             style "button_label"
+widget_class "*<GtkButton>.<GtkLabel>"                             style "button_label"
 
-# Checkbutton labels
-widget_class "*<GtkCheckButton>.<GtkLabel>"                        style "checkbutton_label"
+# Normalize button labels
+widget_class "*<GtkCheckButton>.<GtkLabel>"                        style "normal_button_label"
+widget_class "*<GtkOptionMenu>.<GtkLabel>"                         style "normal_button_label"
 
 # ComboBoxes tend to draw the button label with text[]
 # instead of fg[], we need to fix that
@@ -2820,6 +2706,3 @@ widget_class "*<GtkCellView>"                                      style "disabl
 
 # GTK tooltips
 widget "gtk-tooltip*"                                              style "tooltip"
-
-# Xfce4 panel launchers
-widget "*launcher*" style "panel-launchers"
