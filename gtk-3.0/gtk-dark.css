@@ -49,7 +49,7 @@
 
 .nemo-window .view selection, .nemo-window .view:selected, .nautilus-window notebook .view:not(treeview) selection, .nautilus-window notebook .view:not(treeview):selected, .nautilus-window flowboxchild:selected .icon-item-background, label selection, flowbox flowboxchild:selected {
   color: #754ffe;
-  background-color: rgba(131, 185, 184, 0.2);
+  background-color: rgba(117, 79, 254, 0.2);
 }
 
 .nemo-window .nemo-window-pane widget.entry:selected, window.background.csd evview.view.content-view:selected, window.background.csd evview.view.content-view:selected:backdrop, .nautilus-window.background.csd notebook widget.view:selected, spinbutton.vertical selection, spinbutton:not(.vertical) selection,
@@ -348,7 +348,7 @@ flowbox treeview.view flowbox .content-view rubberband,
 flowbox treeview.view flowbox .content-view XfdesktopIconView.view .rubberband,
 XfdesktopIconView.view flowbox treeview.view flowbox .content-view .rubberband {
   border: 1px solid #754ffe;
-  background-color: rgba(131, 185, 184, 0.3);
+  background-color: rgba(117, 79, 254, 0.3);
 }
 
 flowbox flowboxchild {
@@ -663,7 +663,7 @@ actionbar > revealer > box .linked > button:not(.suggested-action):not(.destruct
 }
 
 actionbar > revealer > box .linked > button:focus:not(.suggested-action):not(.destructive-action), button:focus {
-  box-shadow: 0 0 0 2px rgba(131, 185, 184, 0.35);
+  box-shadow: 0 0 0 2px rgba(117, 79, 254, 0.35);
 }
 
 actionbar > revealer > box .linked > button:hover:not(.suggested-action):not(.destructive-action), button:hover {
@@ -855,7 +855,7 @@ button.osd {
   min-width: 24px;
   min-width: 24px;
   padding: 6px;
-  background-color: #1c1f26;
+  background-color: #242732;
   color: #ffffff;
 }
 
@@ -898,7 +898,7 @@ button.suggested-action:disabled {
 }
 
 button.suggested-action:hover {
-  box-shadow: inset 0 0 0 9999px transparent, 0 2px 2.4px -1px rgba(131, 185, 184, 0.2), 0 4px 3px 0 rgba(131, 185, 184, 0.14), 0 1px 6px 0 rgba(131, 185, 184, 0.12);
+  box-shadow: inset 0 0 0 9999px transparent, 0 2px 2.4px -1px rgba(117, 79, 254, 0.2), 0 4px 3px 0 rgba(117, 79, 254, 0.14), 0 1px 6px 0 rgba(117, 79, 254, 0.12);
 }
 
 button.suggested-action:checked {
@@ -906,11 +906,11 @@ button.suggested-action:checked {
 }
 
 button.suggested-action:checked:hover {
-  box-shadow: inset 0 0 0 9999px transparent, 0 3px 3px -3px rgba(131, 185, 184, 0.3), 0 2px 3px -1px rgba(131, 185, 184, 0.24), 0 2px 5px 0 rgba(131, 185, 184, 0.12);
+  box-shadow: inset 0 0 0 9999px transparent, 0 3px 3px -3px rgba(117, 79, 254, 0.3), 0 2px 3px -1px rgba(117, 79, 254, 0.24), 0 2px 5px 0 rgba(117, 79, 254, 0.12);
 }
 
 button.suggested-action:focus {
-  box-shadow: 0 0 0 2px rgba(131, 185, 184, 0.35);
+  box-shadow: 0 0 0 2px rgba(117, 79, 254, 0.35);
 }
 
 button.suggested-action.flat {
@@ -925,7 +925,7 @@ button.suggested-action.flat:disabled {
 }
 
 button.suggested-action.flat:checked {
-  background-color: rgba(131, 185, 184, 0.3);
+  background-color: rgba(117, 79, 254, 0.3);
 }
 
 button.destructive-action {
@@ -2595,14 +2595,14 @@ radio:indeterminate {
 check:checked:hover, check:indeterminate:hover,
 radio:checked:hover,
 radio:indeterminate:hover {
-  box-shadow: 0 0 0 6px rgba(131, 185, 184, 0.15);
+  box-shadow: 0 0 0 6px rgba(117, 79, 254, 0.15);
   background-color: #a4cbcb;
 }
 
 check:checked:active, check:indeterminate:active,
 radio:checked:active,
 radio:indeterminate:active {
-  box-shadow: 0 0 0 6px rgba(131, 185, 184, 0.2);
+  box-shadow: 0 0 0 6px rgba(117, 79, 254, 0.2);
   background-color: #754ffe;
 }
 
@@ -2610,7 +2610,7 @@ check:checked:disabled, check:indeterminate:disabled,
 radio:checked:disabled,
 radio:indeterminate:disabled {
   color: rgba(0, 0, 0, 0.38);
-  background-color: rgba(131, 185, 184, 0.35);
+  background-color: rgba(117, 79, 254, 0.35);
 }
 
 popover modelbutton.flat check, popover modelbutton.flat check:focus, popover modelbutton.flat check:hover, popover modelbutton.flat check:focus:hover, popover modelbutton.flat check:active, popover modelbutton.flat check:disabled, popover modelbutton.flat radio, popover modelbutton.flat radio:focus, popover modelbutton.flat radio:hover, popover modelbutton.flat radio:focus:hover, popover modelbutton.flat radio:active, popover modelbutton.flat radio:disabled {
@@ -5458,7 +5458,7 @@ ideeditorutilities > dzldockpaned > box > stackswitcher button {
 }
 
 ideeditorutilities > dzldockpaned > box > stackswitcher button:active {
-  background-image: radial-gradient(circle, rgba(131, 185, 184, 0.7) 10%, transparent 0%);
+  background-image: radial-gradient(circle, rgba(117, 79, 254, 0.7) 10%, transparent 0%);
 }
 
 ideeditorutilities > dzldockpaned > box > stackswitcher button:checked {
@@ -6478,7 +6478,7 @@ UnityDecoration .menuitem:hover {
 
 UnityPanelWidget,
 .unity-panel {
-  background-color: #1c1f26;
+  background-color: #242732;
   color: #ffffff;
 }
 
@@ -6546,7 +6546,7 @@ UnityPanelWidget:backdrop,
 }
 
 .mate-panel-menu-bar {
-  background-color: #1c1f26;
+  background-color: #242732;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
@@ -7298,7 +7298,7 @@ dialog.background > .dialog-vbox > scrolledwindow > viewport.frame > list {
 
 .budgie-panel {
   transition: background-color 75ms cubic-bezier(0, 0, 0.2, 1);
-  background-color: #1c1f26;
+  background-color: #242732;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
@@ -7902,7 +7902,7 @@ image.raven-mpris {
  ***************/
 .xfce4-panel.background {
   border: none;
-  background-color: #1c1f26;
+  background-color: #242732;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }

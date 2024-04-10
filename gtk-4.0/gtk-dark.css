@@ -87,7 +87,7 @@ rubberband, .content-view rubberband, .content-view columnview.view > rubberband
 treeview.view > rubberband,
 .content-view treeview.view > .rubberband, gridview > rubberband, flowbox > rubberband {
   border: 1px solid #754ffe;
-  background-color: rgba(131, 185, 184, 0.3);
+  background-color: rgba(117, 79, 254, 0.3);
 }
 
 flowbox > flowboxchild {
@@ -756,10 +756,10 @@ editablelabel > stack > text {
  ***********/
 @keyframes needs-attention {
   from {
-    background-image: radial-gradient(farthest-side, #754ffe 0%, rgba(131, 185, 184, 0) 0%);
+    background-image: radial-gradient(farthest-side, #754ffe 0%, rgba(117, 79, 254, 0) 0%);
   }
   to {
-    background-image: radial-gradient(farthest-side, #754ffe 95%, rgba(131, 185, 184, 0));
+    background-image: radial-gradient(farthest-side, #754ffe 95%, rgba(117, 79, 254, 0));
   }
 }
 
@@ -798,7 +798,7 @@ row.spin spinbutton > button.image-button.up:focus:not(.flat):not(.raised):not(.
 row.spin spinbutton > button.image-button.down:focus:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque),
 row.spin spinbutton > button.image-button.down:focus:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):dir(ltr):last-child,
 row.spin spinbutton > button.image-button.down:focus:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):dir(rtl):first-child, headerbar popover.background button:focus:not(.suggested-action):not(.destructive-action):not(.flat), button:focus {
-  outline: 2px solid rgba(131, 185, 184, 0.35);
+  outline: 2px solid rgba(117, 79, 254, 0.35);
   outline-offset: 0;
 }
 
@@ -850,7 +850,7 @@ row.spin spinbutton > button.image-button.down:checked:hover:not(.flat):not(.rai
 row.spin spinbutton > button.image-button.down:checked:hover:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):dir(ltr):last-child,
 row.spin spinbutton > button.image-button.down:checked:hover:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):dir(rtl):first-child, headerbar popover.background button:checked:hover:not(.suggested-action):not(.destructive-action):not(.flat), button:checked:hover {
   outline-color: transparent;
-  background-color: #93c2c1;
+  background-color: #4338ca;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -859,7 +859,7 @@ row.spin spinbutton > button.image-button.down:checked:disabled:not(.flat):not(.
 row.spin spinbutton > button.image-button.down:checked:disabled:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):dir(ltr):last-child,
 row.spin spinbutton > button.image-button.down:checked:disabled:not(.flat):not(.raised):not(.suggested-action):not(.destructive-action):not(.opaque):dir(rtl):first-child, headerbar popover.background button:checked:disabled:not(.suggested-action):not(.destructive-action):not(.flat), button:checked:disabled {
   outline-color: transparent;
-  background-color: rgba(131, 185, 184, 0.35);
+  background-color: rgba(117, 79, 254, 0.35);
   color: rgba(0, 0, 0, 0.38);
 }
 
@@ -1126,13 +1126,13 @@ button.card:checked {
 button.card:checked:hover {
   background-image: none;
   outline-color: transparent;
-  background-color: #93c2c1;
+  background-color: #4338ca;
   color: rgba(0, 0, 0, 0.87);
 }
 
 button.card:checked:disabled {
   outline-color: transparent;
-  background-color: rgba(131, 185, 184, 0.35);
+  background-color: rgba(117, 79, 254, 0.35);
   color: rgba(0, 0, 0, 0.38);
 }
 
@@ -1218,7 +1218,7 @@ button.suggested-action:disabled {
 }
 
 button.suggested-action:hover {
-  box-shadow: inset 0 0 0 9999px transparent, 0 2px 2.4px -1px rgba(131, 185, 184, 0.2), 0 4px 3px 0 rgba(131, 185, 184, 0.14), 0 1px 6px 0 rgba(131, 185, 184, 0.12);
+  box-shadow: inset 0 0 0 9999px transparent, 0 2px 2.4px -1px rgba(117, 79, 254, 0.2), 0 4px 3px 0 rgba(117, 79, 254, 0.14), 0 1px 6px 0 rgba(117, 79, 254, 0.12);
 }
 
 button.suggested-action:checked {
@@ -1226,11 +1226,11 @@ button.suggested-action:checked {
 }
 
 button.suggested-action:checked:hover {
-  box-shadow: inset 0 0 0 9999px transparent, 0 3px 3px -3px rgba(131, 185, 184, 0.3), 0 2px 3px -1px rgba(131, 185, 184, 0.24), 0 2px 5px 0 rgba(131, 185, 184, 0.12);
+  box-shadow: inset 0 0 0 9999px transparent, 0 3px 3px -3px rgba(117, 79, 254, 0.3), 0 2px 3px -1px rgba(117, 79, 254, 0.24), 0 2px 5px 0 rgba(117, 79, 254, 0.12);
 }
 
 button.suggested-action:focus {
-  box-shadow: 0 0 0 2px rgba(131, 185, 184, 0.35);
+  box-shadow: 0 0 0 2px rgba(117, 79, 254, 0.35);
 }
 
 button.suggested-action.flat {
@@ -1244,7 +1244,7 @@ button.suggested-action.flat:disabled {
 }
 
 button.suggested-action.flat:checked {
-  background-color: rgba(131, 185, 184, 0.3);
+  background-color: rgba(117, 79, 254, 0.3);
 }
 
 button.destructive-action {
@@ -2262,7 +2262,7 @@ headerbar.default-decoration windowcontrols menubutton button {
 }
 
 window.devel headerbar {
-  background: #242732 cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, linear-gradient(to right, transparent 65%, rgba(131, 185, 184, 0.1)), linear-gradient(to top, #242933 3px, #292e39);
+  background: #242732 cross-fade(10% -gtk-icontheme("system-run-symbolic"), image(transparent)) 90% 0/256px 256px no-repeat, linear-gradient(to right, transparent 65%, rgba(117, 79, 254, 0.1)), linear-gradient(to top, #242933 3px, #292e39);
 }
 
 window.devel headerbar:backdrop {
@@ -3518,14 +3518,14 @@ radio:indeterminate {
 check:checked:hover, check:indeterminate:hover,
 radio:checked:hover,
 radio:indeterminate:hover {
-  box-shadow: 0 0 0 6px rgba(131, 185, 184, 0.15);
+  box-shadow: 0 0 0 6px rgba(117, 79, 254, 0.15);
   background-color: #a4cbcb;
 }
 
 check:checked:active, check:indeterminate:active,
 radio:checked:active,
 radio:indeterminate:active {
-  box-shadow: 0 0 0 6px rgba(131, 185, 184, 0.2);
+  box-shadow: 0 0 0 6px rgba(117, 79, 254, 0.2);
   background-color: #754ffe;
 }
 
@@ -3533,7 +3533,7 @@ check:checked:disabled, check:indeterminate:disabled,
 radio:checked:disabled,
 radio:indeterminate:disabled {
   color: rgba(0, 0, 0, 0.6);
-  background-color: rgba(131, 185, 184, 0.35);
+  background-color: rgba(117, 79, 254, 0.35);
 }
 
 popover modelbutton.flat check, popover modelbutton.flat check:focus, popover modelbutton.flat check:hover, popover modelbutton.flat check:focus:hover, popover modelbutton.flat check:active, popover modelbutton.flat check:disabled, popover modelbutton.flat radio, popover modelbutton.flat radio:focus, popover modelbutton.flat radio:hover, popover modelbutton.flat radio:focus:hover, popover modelbutton.flat radio:active, popover modelbutton.flat radio:disabled {
@@ -5684,7 +5684,7 @@ treeview.view:selected, calendar:selected, calendar > grid > label.day-number:se
 
 flowbox > flowboxchild:selected, calendar > grid > label.today {
   color: #754ffe;
-  background-color: rgba(131, 185, 184, 0.2);
+  background-color: rgba(117, 79, 254, 0.2);
 }
 
 textview text selection:focus, textview text selection, label > selection,
@@ -7333,7 +7333,7 @@ playlistview queuerow image.card {
 .exit-info {
   padding: 6px;
   border-top: 2px solid #754ffe;
-  background: rgba(131, 185, 184, 0.9);
+  background: rgba(117, 79, 254, 0.9);
   color: rgba(0, 0, 0, 0.87);
 }
 
